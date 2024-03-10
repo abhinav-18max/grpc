@@ -2,16 +2,17 @@ package main
 
 import (
 	"context"
-	pb "github.com/abhinav-18max/grpc/proto"
 	"io"
 	"log"
+
+	pb "github.com/abhinav-18max/grpc/proto"
 )
 
 func callSayHelloServerStream(client pb.GreetServiceClient, names *pb.NameList) {
 	log.Printf("Streaming started")
 	stream, err := client.SayHelloServerStreaming(context.Background(), names)
 	if err != nil {
-		log.Fatalf("Couldn't connect to server: %v", err)
+		log.Fatalf("Could not send names: %v", err)
 	}
 
 	for {
@@ -20,9 +21,10 @@ func callSayHelloServerStream(client pb.GreetServiceClient, names *pb.NameList) 
 			break
 		}
 		if err != nil {
-			log.Fatalf("error getting message: %v", err)
+			log.Fatalf("Error while streaming %v", err)
 		}
 		log.Println(message)
 	}
+
 	log.Printf("Streaming finished")
 }

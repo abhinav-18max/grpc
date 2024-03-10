@@ -1,8 +1,9 @@
-module github.com/abhinav-18max/grpc
+module github.com/akhil/grpc-demo
 
 go 1.21.1
 
 require (
+	github.com/abhinav-18max/grpc v0.0.0-20240310165035-5f4c65d1b5cf
 	google.golang.org/grpc v1.62.1
 	google.golang.org/protobuf v1.33.0
 )

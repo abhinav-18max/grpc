@@ -9,7 +9,7 @@ import (
 	pb "github.com/abhinav-18max/grpc/proto"
 )
 
-func callSayHelloBidirectionalStream(client pb.GreetServiceClient, names *pb.NameList) {
+func callSayHelloBiDiStream(client pb.GreetServiceClient, names *pb.NameList) {
 	log.Printf("Bidirectional Streaming started")
 	stream, err := client.SayHelloBiDiStreaming(context.Background())
 	if err != nil {

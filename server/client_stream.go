@@ -1,9 +1,10 @@
 package main
 
 import (
-	pb "github.com/abhinav-18max/grpc/proto"
 	"io"
 	"log"
+
+	pb "github.com/abhinav-18max/grpc/proto"
 )
 
 func (s *helloServer) SayHelloClientStreaming(stream pb.GreetService_SayHelloClientStreamingServer) error {
@@ -16,8 +17,7 @@ func (s *helloServer) SayHelloClientStreaming(stream pb.GreetService_SayHelloCli
 		if err != nil {
 			return err
 		}
-		log.Printf("Got message: %v", req.Name)
-		messages = append(messages, req.Name)
-
+		log.Printf("Got request with name : %v", req.Name)
+		messages = append(messages, "Hello "+req.Name)
 	}
 }

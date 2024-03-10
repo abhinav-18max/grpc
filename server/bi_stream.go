@@ -7,7 +7,7 @@ import (
 	pb "github.com/abhinav-18max/grpc/proto"
 )
 
-func (s *helloServer) SayHelloBidirectionalStreaming(stream pb.GreetService_SayHelloBiDiStreamingServer) error {
+func (s *helloServer) SayHelloBiDiStreaming(stream pb.GreetService_SayHelloBiDiStreamingServer) error {
 	for {
 		req, err := stream.Recv()
 		if err == io.EOF {
